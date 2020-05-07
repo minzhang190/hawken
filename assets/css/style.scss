@@ -6,3 +6,25 @@
 header h1, header h2 {
     width: auto !important;
 }
+
+.content-cat-nav {
+    margin-top: 1em;
+    border-top: solid 1px #ddd;
+    padding-top: 1em;
+}
+
+.content-cat-nav-prev {
+    float: left;
+}
+
+.content-cat-nav-prev:before {
+    content: "\00ab ";
+}
+
+.content-cat-nav-next {
+    float: right;
+}
+
+.content-cat-nav-next:after {
+    content: " \00bb";
+}
