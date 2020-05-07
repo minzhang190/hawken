@@ -14,7 +14,7 @@ layout: default
         </h2>
         <p>
             {{ post.content | strip_html | truncatewords: 50 }}<br>
-            <a href="{{ post.url | relative_url }}">Read full post &gt;&gt;</a>
+            <a href="{{ post.url | relative_url }}">Read full post &raquo;</a>
         </p>
     </article>
 {% endfor %}

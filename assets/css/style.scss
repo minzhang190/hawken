@@ -3,28 +3,30 @@
 
 @import "{{ site.theme }}";
 
-header h1, header h2 {
-    width: auto !important;
+header {
+    h1, h2 {
+        width: auto !important;
+    }
 }
 
 .content-cat-nav {
     margin-top: 1em;
     border-top: solid 1px #ddd;
     padding-top: 1em;
-}
 
-.content-cat-nav-prev {
-    float: left;
-}
+    .content-cat-nav-prev {
+        float: left;
 
-.content-cat-nav-prev:before {
-    content: "\00ab ";
-}
+        a:before {
+            content: "\00ab\00a0";
+        }
+    }
 
-.content-cat-nav-next {
-    float: right;
-}
+    .content-cat-nav-next {
+        float: right;
 
-.content-cat-nav-next:after {
-    content: " \00bb";
+        a:after {
+            content: "\00a0\00bb";
+        }
+    }
 }
