@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<div id="message" hidden>
+    <div id="message-body"></div>
+</div>
+
 {% for category in site.category %}
     <h2>
         <a href="{{ category.url | relative_url }}">
