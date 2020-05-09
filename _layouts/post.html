@@ -7,6 +7,11 @@ layout: default
 
 <p class="view">by {{ page.author | default: site.author }}</p>
 
+<div id="message" hidden>
+    <div id="message-body"></div>
+    <hr>
+</div>
+
 {{content}}
 
 {% assign cat = page.category %}
