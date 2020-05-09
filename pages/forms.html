@@ -17,6 +17,7 @@ permalink: /forms
 </script>
 
     <meta charset="utf-8">
+    <script src="/gaid.js"></script>
     <title>Google Forms</title>
   </head>
   <body>
@@ -26,26 +27,10 @@ permalink: /forms
 var searchParams = new URLSearchParams(location.search);
 document.title = searchParams.get('title') || 'Google Forms';
 
-function showForm(clientId) {
+useGAID(function(clientId) {
     var url = 'https://docs.google.com/forms/d/e/' + searchParams.get('form') + '/viewform?' + searchParams.get('entry') + '=' + clientId;
     document.getElementById('iframe').src = url;
-}
-
-var count = 50;
-var interval = setInterval(() => {
-    if (count-- > 0 && (!window.ga || !window.ga.getAll)) {
-        console.log('Waiting for window.ga to be available...');
-        return;
-    }
-
-    clearInterval(interval);
-
-    var trackerId = 'unknown';
-    if (window.ga && window.ga.getAll) {
-        trackerId = ga.getAll().map(tracker => tracker.get('clientId')).filter(x => x).pop();
-    }
-    showForm(trackerId);
-}, 100);
+});
 
     </script>
   </body>
