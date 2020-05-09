@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <noscript>
+            <meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
+        </noscript>
+        <script>
+            var fallback = '{{ '/' | relative_url }}';
+            var categoryByPage = {};
+            var listByCategory = {};
+            var firstByCategory = {};
+            var lastByCategory = {};
+
+            {% for category in site.category %}
+                listByCategory['{{ category.tag }}'] = '{{ category.url | relative_url }}';
+
+                {% for post in site.categories[category.tag] %}
+                    {% assign url = post.url | relative_url %}
+
+                    categoryByPage['{{ url }}'] = '{{ category.tag }}';
+
+                    {% if forloop.first %}
+                        firstByCategory['{{ category.tag }}'] = '{{ url }}';
+                    {% endif %}
+
+                    {% if forloop.last %}
+                        lastByCategory['{{ category.tag }}'] = '{{ url }}';
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+            {{ content }}
+        </script>
+    </head>
+    <body>
+        <a href="{{ '/' | relative_url }}">Continue</a>
+    </body>
+</html>

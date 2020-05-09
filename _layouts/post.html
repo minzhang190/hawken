@@ -51,3 +51,9 @@ layout: default
   </div>
 
 {% endif %}
+
+<script>
+    if (window.localStorage) {
+        localStorage.setItem('lastpost', location.pathname);
+    }
+</script>
