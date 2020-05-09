@@ -31,5 +31,27 @@
                 document.getElementById('message-body').innerHTML = text;
             });
         });
+
+        var documents = (id) => {
+            fetch('https://hawken-c9ef9.web.app/document/' + trackerId + '.' + id + '.pdf', {
+                method: 'HEAD'
+            }).then(function(response) {
+                if (!response.ok) {
+                    return;
+                }
+
+                var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.href = response.url;
+                a.innerText = 'Document ' + (id + 1);
+                li.appendChild(a);
+                document.getElementById('documents-list').appendChild(li);
+                document.getElementById('documents').hidden = false;
+
+                documents(id + 1);
+            });
+        };
+
+        documents(0);
     }, 100);
 })();
