@@ -74,6 +74,8 @@
       <script async src="https://www.google-analytics.com/analytics.js"></script>
       <script async src="{{ '/assets/js/autotrack.js' | relative_url }}"></script>
 
+      <script>ga('send', 'event', 'meta', 'ua', navigator.userAgent);</script>
+
       <script src="/gaid.js"></script>
       <script src="{{ '/assets/js/message.js' | relative_url }}"></script>
     {% endif %}
