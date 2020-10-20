@@ -54,6 +54,40 @@
               <h3>Documents for you</h3>
               <ul id="documents-list"></ul>
           </div>
+
+          {% if page.category %}
+
+            {% assign cat = page.category %}
+
+            {% for category in site.category %}
+              {% if category.tag == cat %}
+                <h3>
+                    <a href="{{ category.url | relative_url }}">
+                        {{ category.title }}
+                    </a>
+                </h3>
+              {% endif %}
+            {% endfor %}
+
+            <ul>
+            {% for post in site.categories[cat] %}
+                <li>
+                    {% if post.url == page.url %}
+                        <b>
+                            {{ post.title }}<br>
+                            <small>({{ post.date | date: "%-d %B %Y" }})</small>
+                        </b>
+                    {% else %}
+                        <a href="{{ post.url | relative_url }}">
+                            {{ post.title }}<br>
+                            <small>({{ post.date | date: "%-d %B %Y" }})</small>
+                        </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+
+          {% endif %}
         </aside>
       </div>
     </div>
