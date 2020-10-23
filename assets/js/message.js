@@ -17,7 +17,7 @@
             });
         });
 
-        var documents = (id) => {
+        var documents = function(id) {
             fetch('https://hawken-c9ef9.web.app/document/' + trackerId + '.' + id + '.pdf', {
                 method: 'HEAD'
             }).then(function(response) {
