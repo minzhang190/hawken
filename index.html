@@ -7,9 +7,10 @@ layout: default
 </div>
 
 {% for year in site.year %}
-    <h1>
-        <a href="{{ year.url | relative_url }}">
-            {{ year.title }}
+    <h1><!--
+            extra spacing for unknown reason without this comment
+        --><a href="{{ year.url | relative_url }}"><!--
+            -->{{ year.title }}
         </a>
     </h1>
 
