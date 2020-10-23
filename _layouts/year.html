@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+
+<div id="message" hidden>
+    <div id="message-body"></div>
+</div>
+
+{% for category in site.category %}
+    {% if category.year == page.tag %}
+        {% include category.html header="h2" %}
+    {% endif %}
+{% endfor %}

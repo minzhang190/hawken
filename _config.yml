@@ -14,6 +14,8 @@ author: Zhang LaoShi
 permalink: /:title
 
 collections:
+    year:
+        output: true
     category:
         output: true
 
@@ -24,5 +26,11 @@ defaults:
             type: category
         values:
             layout: "category"
+    -
+        scope:
+            path: ""
+            type: year
+        values:
+            layout: "year"
 
 google_analytics: UA-162759593-2
